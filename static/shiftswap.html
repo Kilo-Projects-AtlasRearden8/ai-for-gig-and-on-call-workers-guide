@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shift swap helper — AI for Gig Workers</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a href="#content" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="wrap">
+    <h1>Shift swap helper</h1>
+    <p>Write a polite shift-swap message and log the swap. Part of the
+    <em>AI for Gig Workers</em> site by <strong>Asdale Dynamics, LLC</strong>.</p>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="timesheet.html">Timesheet</a>
+  <a href="earnings.html">Earnings tracker</a>
+  <a href="shiftswap.html" aria-current="page">Shift swap helper</a>
+  <a href="automation.html">Simple automation</a>
+  <a href="../worksheets/shift-swap-worksheet.html" target="_blank" rel="noopener">Printable worksheet</a>
+</nav>
+
+<main id="content">
+  <h2>Swap a shift</h2>
+  <p>Irregular schedules mean swaps happen. Fill in your details below and this
+  page drafts a short, professional message you can copy into a text or email.
+  Nothing you type leaves your browser.</p>
+
+  <div class="card noprint">
+    <form id="swap-form" onsubmit="event.preventDefault(); draftMessage();">
+      <label for="your-name">Your name</label>
+      <input type="text" id="your-name" placeholder="Your name" required>
+      <label for="swap-date">Date of the shift to swap</label>
+      <input type="date" id="swap-date" required>
+      <label for="swap-start">Start time</label>
+      <input type="time" id="swap-start" required>
+      <label for="swap-end">End time</label>
+      <input type="time" id="swap-end" required>
+      <label for="swap-reason">Reason (optional — keep it brief)</label>
+      <input type="text" id="swap-reason" placeholder="e.g. family commitment">
+      <label for="swap-offer">What you can offer in return (optional)</label>
+      <input type="text" id="swap-offer" placeholder="e.g. I can cover one of your future shifts">
+      <label for="swap-contact">How to reach you</label>
+      <input type="text" id="swap-contact" placeholder="e.g. text 555-0100">
+      <button type="submit" id="draft-btn">Draft message</button>
+    </form>
+  </div>
+
+  <div class="card noprint">
+    <h3>Your draft</h3>
+    <p id="draft-out" style="white-space: pre-wrap; background: var(--soft); border: 1px solid var(--border); border-radius: 0.35rem; padding: 1rem;"></p>
+    <button type="button" id="copy-draft" class="btn noprint">Copy draft</button>
+  </div>
+
+  <div class="card noprint">
+    <h3>Before you send</h3>
+    <ul>
+      <li>Check your employer's or platform's swap rules first.</li>
+      <li>Get manager approval if your job requires it.</li>
+      <li>Confirm the pay rate moves with the shift — night and weekend shifts often pay differently.</li>
+      <li>Read the draft yourself before sending. AI suggests; you decide.</li>
+    </ul>
+  </div>
+
+  <div class="card noprint">
+    <h3>Log the swap</h3>
+    <p>Write down who you swapped with, the original shift, the new shift, and
+    whether it was approved. Use the <a href="../worksheets/shift-swap-worksheet.html" target="_blank" rel="noopener">printable shift-swap worksheet</a>.</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Asdale Dynamics, LLC. Published by Dylan Asdale, founder of Asdale Dynamics, LLC (Indiana).</p>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+(function () {
+  "use strict";
+  function esc(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+  function draftMessage() {
+    var name = document.getElementById("your-name").value.trim();
+    var date = document.getElementById("swap-date").value;
+    var start = document.getElementById("swap-start").value;
+    var end = document.getElementById("swap-end").value;
+    var reason = document.getElementById("swap-reason").value.trim();
+    var offer = document.getElementById("swap-offer").value.trim();
+    var contact = document.getElementById("swap-contact").value.trim();
+    var out = document.getElementById("draft-out");
+    if (!name || !date || !start || !end) { alert("Fill in your name, date, start, and end time."); return; }
+    var timeLabel = fmtTime(start) + "–" + fmtTime(end);
+    var lines = [];
+    lines.push("Hi,");
+    lines.push("I'm " + esc(name) + " and I need to swap my shift on " + esc(date) + " (" + esc(timeLabel) + ").");
+    if (reason) lines.push("Reason: " + esc(reason) + ".");
+    if (offer) lines.push("In return, I'm happy to " + esc(offer) + ".");
+    lines.push("Please let me know if this works for you. You can reach me at " + esc(contact) + ".");
+    lines.push("Thanks,");
+    lines.push(esc(name));
+    out.textContent = lines.join("\n");
+  }
+  function fmtTime(v) {
+    if (!v) return "";
+    var parts = v.split(":");
+    var h = parseInt(parts[0], 10);
+    var m = parts[1];
+    var ampm = h >= 12 ? "pm" : "am";
+    var h12 = h % 12 || 12;
+    return h12 + ":" + m + " " + ampm;
+  }
+  document.getElementById("draft-btn").addEventListener("click", draftMessage);
+  document.getElementById("copy-draft").addEventListener("click", function () {
+    var out = document.getElementById("draft-out");
+    navigator.clipboard.writeText(out.textContent).then(function () {
+      var btn = document.getElementById("copy-draft");
+      var old = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(function () { btn.textContent = old; }, 1500);
+    });
+  });
+})();
+</script>
+</body>
+</html>

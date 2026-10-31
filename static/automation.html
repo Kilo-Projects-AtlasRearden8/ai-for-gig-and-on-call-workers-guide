@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Simple automation — AI for Gig Workers</title>
+<link rel="stylesheet" href="../styles.css">
+</head>
+<body>
+<a href="#content" class="skip-link">Skip to content</a>
+
+<header>
+  <div class="wrap">
+    <h1>Simple automation</h1>
+    <p>Small, local automations for unpredictable hours. Part of the
+    <em>AI for Gig Workers</em> site by <strong>Asdale Dynamics, LLC</strong>.</p>
+  </div>
+</header>
+
+<nav>
+  <a href="index.html">Home</a>
+  <a href="timesheet.html">Timesheet</a>
+  <a href="earnings.html">Earnings tracker</a>
+  <a href="shiftswap.html">Shift swap helper</a>
+  <a href="automation.html" aria-current="page">Simple automation</a>
+</nav>
+
+<main id="content">
+  <h2>Automation that fits your life</h2>
+  <p>You don't need to automate everything. Pick one annoying five-minute task
+  and let the computer handle it. Every idea here runs on your own computer —
+  nothing is uploaded.</p>
+
+  <div class="card">
+    <h3>1. Weekly earnings summary</h3>
+    <p>One command adds up this week's hours and pay from your shift log. See
+    <code>tools/earnings-tracker.py</code> in the project folder.</p>
+  </div>
+
+  <div class="card">
+    <h3>2. Shift reminder</h3>
+    <p>The night before a shift, your screen shows tomorrow's start time and
+    location. You set it once; it runs when you ask.</p>
+  </div>
+
+  <div class="card">
+    <h3>3. Message drafts</h3>
+    <p>AI writes the first version of a client message, a rate-increase note, or
+    a shift-swap request. You edit and send. Try it on the
+    <a href="shiftswap.html">shift swap helper</a> page.</p>
+  </div>
+
+  <div class="card noprint">
+    <h3>Try it: weekly earnings summary</h3>
+    <p>Paste your shifts below (one per line: date, hours, pay). This page
+    adds the totals — nothing leaves your browser.</p>
+    <textarea id="shifts-in" rows="8" placeholder="2026-10-01, 8, 22.50
+2026-10-03, 6, 22.50
+2026-10-05, 4, 22.50"></textarea>
+    <button type="button" id="calc-btn" class="btn">Add up this week</button>
+    <div id="calc-out" class="card" style="margin-top: 1rem;"></div>
+  </div>
+
+  <div class="card noprint">
+    <h3>Keep it local-first</h3>
+    <p>Your schedule and earnings are personal. Scripts in <code>tools/</code>
+    save data only to files on your computer and need no API keys or accounts.</p>
+  </div>
+</main>
+
+<footer>
+  <p>© 2026 Asdale Dynamics, LLC. Published by Dylan Asdale, founder of Asdale Dynamics, LLC (Indiana).</p>
+</footer>
+
+<script src="../script.js"></script>
+<script>
+(function () {
+  "use strict";
+  function esc(t) { var d = document.createElement("div"); d.textContent = t; return d.innerHTML; }
+  document.getElementById("calc-btn").addEventListener("click", function () {
+    var raw = document.getElementById("shifts-in").value;
+    var lines = raw.split("\n");
+    var hours = 0, pay = 0, n = 0;
+    var out = document.getElementById("calc-out");
+    var html = "";
+    lines.forEach(function (line) {
+      line = line.trim();
+      if (!line) return;
+      var parts = line.split(",");
+      if (parts.length < 3) { html += "<p style='color:var(--muted);'>Skipped: " + esc(line) + "</p>"; return; }
+      var h = parseFloat(parts[1].trim());
+      var p = parseFloat(parts[2].trim());
+      if (isNaN(h) || isNaN(p)) { html += "<p style='color:var(--muted);'>Skipped: " + esc(line) + "</p>"; return; }
+      hours += h; pay += h * p; n += 1;
+    });
+    html += "<p><strong>" + n + " shift(s).</strong> Total hours: <strong>" + hours.toFixed(2) + "</strong>. Total pay: <strong>$" + pay.toFixed(2) + "</strong>.</p>";
+    html += "<p style='color:var(--muted); font-size:0.9rem;'>Always double-check the math yourself before using it for anything official.</p>";
+    out.innerHTML = html;
+  });
+})();
+</script>
+</body>
+</html>

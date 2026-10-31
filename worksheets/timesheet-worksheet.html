@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Timesheet worksheet — Asdale Dynamics, LLC</title>
+<style>
+:root { --ink:#1f2937; --muted:#6b7280; --border:#e5e7eb; --soft:#f3f4f6; }
+* { box-sizing: border-box; }
+html { line-height: 1.5; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); font-size: 10pt; }
+header { border-bottom: 2px solid var(--ink); padding: 10pt 12pt; background: var(--soft); }
+header h1 { margin: 0 0 2pt; font-size: 14pt; }
+header p { margin: 0; font-size: 8.5pt; color: var(--muted); }
+main { padding: 10pt 12pt; }
+h2 { font-size: 11pt; margin: 14pt 0 4pt; border-bottom: 1px solid var(--border); padding-bottom: 2pt; }
+p { margin: 0 0 6pt; }
+table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; }
+th, td { border: 1px solid var(--border); padding: 6pt 8pt; text-align: left; font-size: 9pt; }
+th { background: var(--soft); }
+.blank-row td { height: 22pt; }
+.totals td { font-weight: 600; background: var(--soft); }
+.note { font-size: 8.5pt; color: var(--muted); }
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  table { break-inside: avoid; }
+  .page-break { break-before: page; }
+  th, td { border-color: #000; }
+}
+@page { size: Letter; margin: 18mm 16mm; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Timesheet worksheet</h1>
+  <p>Print one page per week. Fill in each shift the day you work it. Published by <strong>Asdale Dynamics, LLC</strong>.</p>
+</header>
+<main>
+  <p><strong>Worker:</strong> __________________________ &nbsp;&nbsp; <strong>Week of:</strong> __________________ &nbsp;&nbsp; <strong>Employer/app:</strong> __________________________</p>
+
+  <table>
+    <thead>
+      <tr><th>Date</th><th>Start</th><th>End</th><th>Break (min)</th><th>Hours</th><th>Rate</th><th>Total</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+      <tr class="totals"><td colspan="4">Week totals</td><td></td><td></td><td>$0.00</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <p class="note">Tips: log shifts the same day. Include unpaid breaks. Keep this page with your pay records — it's your proof if a paycheck looks wrong. Education only; not tax or legal advice.</p>
+
+  <div class="page-break no-print"></div>
+</main>
+</body>
+</html>

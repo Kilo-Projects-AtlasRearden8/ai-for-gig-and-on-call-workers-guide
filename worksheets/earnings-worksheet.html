@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Earnings worksheet — Asdale Dynamics, LLC</title>
+<style>
+:root { --ink:#1f2937; --muted:#6b7280; --border:#e5e7eb; --soft:#f3f4f6; }
+* { box-sizing: border-box; }
+html { line-height: 1.5; }
+body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; color: var(--ink); font-size: 10pt; }
+header { border-bottom: 2px solid var(--ink); padding: 10pt 12pt; background: var(--soft); }
+header h1 { margin: 0 0 2pt; font-size: 14pt; }
+header p { margin: 0; font-size: 8.5pt; color: var(--muted); }
+main { padding: 10pt 12pt; }
+h2 { font-size: 11pt; margin: 14pt 0 4pt; border-bottom: 1px solid var(--border); padding-bottom: 2pt; }
+p { margin: 0 0 6pt; }
+table { width: 100%; border-collapse: collapse; margin: 6pt 0 10pt; }
+th, td { border: 1px solid var(--border); padding: 6pt 8pt; text-align: left; font-size: 9pt; }
+th { background: var(--soft); }
+.blank-row td { height: 20pt; }
+.totals td { font-weight: 600; background: var(--soft); }
+.note { font-size: 8.5pt; color: var(--muted); }
+@media print {
+  body { background: #fff; }
+  .no-print { display: none !important; }
+  th, td { border-color: #000; }
+}
+@page { size: Letter; margin: 18mm 16mm; }
+</style>
+</head>
+<body>
+<header>
+  <h1>Monthly earnings worksheet</h1>
+  <p>Record every payment you receive — rideshare, delivery, on-call blocks, freelance clients. One page per month. Published by <strong>Asdale Dynamics, LLC</strong>.</p>
+</header>
+<main>
+  <p><strong>Worker:</strong> __________________________ &nbsp;&nbsp; <strong>Month:</strong> __________________ &nbsp;&nbsp; <strong>Year:</strong> ________</p>
+
+  <table>
+    <thead>
+      <tr><th>Date paid</th><th>Source</th><th>Amount</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="blank-row"><td></td><td></td><td>$0.00</td><td></td></tr>
+      <tr class="totals"><td colspan="2">Monthly total</td><td>$0.00</td><td></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Compare with your paystubs</h3>
+  <table>
+    <tr><th>Item</th><th>Amount</th></tr>
+    <tr class="blank-row"><td>Total earned this month (your log)</td><td>$0.00</td></tr>
+    <tr class="blank-row"><td>Total paid (paystubs/apps)</td><td>$0.00</td></tr>
+    <tr class="blank-row"><td>Difference</td><td>$0.00</td></tr>
+  </table>
+
+  <p class="note">If the numbers don't match, note the difference and ask the app or employer while you still can. Education only — not tax advice; keep your own records and consult a tax professional for filing.</p>
+</main>
+</body>
+</html>

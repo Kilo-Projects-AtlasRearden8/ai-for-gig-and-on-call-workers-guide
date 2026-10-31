@@ -1,0 +1,9 @@
+# Data files created by the local helper scripts (personal data — do not commit)
+shifts.csv
+earnings.csv
+
+# Python caches
+__pycache__/
+*.pyc
+.pytest_cache/
+.mypy_cache/
