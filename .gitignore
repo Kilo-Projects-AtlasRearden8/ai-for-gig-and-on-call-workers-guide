@@ -1,9 +1,14 @@
-# Data files created by the local helper scripts (personal data — do not commit)
-shifts.csv
-earnings.csv
 
+# Data files created by the local helper scripts (personal data — do not commit)
 # Python caches
-__pycache__/
 *.pyc
-.pytest_cache/
+.env
+.env.*
 .mypy_cache/
+.pytest_cache/
+.venv/
+__pycache__/
+dist/*.tmp
+earnings.csv
+node_modules/
+shifts.csv
