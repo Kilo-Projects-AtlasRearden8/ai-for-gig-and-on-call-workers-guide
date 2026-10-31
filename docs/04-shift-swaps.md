@@ -29,7 +29,7 @@ Paste this into a chatbot, filling in your details:
 > call. I need to swap a Thursday 7pm–7am shift for a Friday 7am–7pm shift. I'm
 > happy to pick up one of their future shifts in return. Keep it under four
 > sentences, friendly, and professional. Don't include my real name — use
-	[Your Name]."
+> [Your Name]."
 
 The AI gives you a draft. Read it, adjust it, send it. Never send anything you
 haven't read yourself.
@@ -44,8 +44,8 @@ Write down every swap:
 - Whether a manager approved it
 - Date confirmed
 
-Use `worksheets/shift-swap-log.html` or a notes app. If pay ends up wrong, your
-log is your proof.
+Use `worksheets/shift-swap-worksheet.html` or a notes app. If pay ends up wrong,
+your log is your proof.
 
 ## A warning about pay
 

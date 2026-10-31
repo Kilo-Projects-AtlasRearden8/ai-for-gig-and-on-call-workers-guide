@@ -7,13 +7,13 @@ A beginner manual and static site for workers with unpredictable hours
 
 - `docs/` — beginner manual in plain English:
   - `index.md` — overview and who this is for
-  - `02-ai-basics.md` — AI/LLM/prompt/agent/MCP in plain English
-  - `03-timesheets-earnings.md` — logging shifts, AI cleanup of notes,
+  - `02-ai-basics.md` — AI/LLM/prompt/agent/MCP in plain English, plus a first-prompt example
+  - `03-timesheets-earnings.md` — logging shifts (step by step), AI cleanup of notes,
     weekly review, printable worksheets
   - `04-shift-swaps.md` — swap rules, what to include, AI draft example,
     swap log, pay-rate warning
   - `05-simple-automation.md` — small local-first automations, one-at-a-time
-    rule, helper scripts
+    rule, step-by-step weekly earnings summary
   - `06-local-ai-privacy.md` — Ollama/LM Studio, privacy rules of thumb,
     education-only note for healthcare workers
   - `07-resources.md` — Asdale Dynamics, LLC credit and next steps
@@ -36,14 +36,16 @@ A beginner manual and static site for workers with unpredictable hours
 - `tests/` — unittest/pytest tests for all three tools (13 tests, all pass)
 - `LICENSE` — MIT License, copyright line exactly
   `Copyright (c) 2026 Asdale Dynamics, LLC`
-- `README.md` — credits Dylan Asdale and Asdale Dynamics, LLC
+- `README.md` — credits Dylan Asdale and Asdale Dynamics, LLC; warm, polished,
+  quick-start focused
 - `.gitignore` — keeps personal data files (`shifts.csv`, `earnings.csv`)
   out of git
 
 ## How to run it
 
-**Static site:** open `static/index.html` (or any `static/*.html` / `worksheets/*.html`)
-in a web browser. No build step, no internet required once downloaded.
+**Static site:** open `static/index.html` (or any `static/*.html` /
+`worksheets/*.html`) in a web browser. No build step, no internet required once
+downloaded.
 
 **Print worksheets:** open a `worksheets/*.html` file and use the browser's
 Print command (print styles hide navigation and buttons).
@@ -76,6 +78,9 @@ or `python3 -m unittest discover -s tests -v` if pytest is unavailable.
 - LICENSE copyright line verified exactly:
   `Copyright (c) 2026 Asdale Dynamics, LLC`
 - README credits Asdale Dynamics, LLC
+- All broken internal file references (docs and README) fixed to match actual
+  filenames (`timesheet_tracker.py`, `earnings_tracker.py`,
+  `earnings-worksheet.html`, `shift-swap-worksheet.html`)
 
 ## Known gaps
 

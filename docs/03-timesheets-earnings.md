@@ -12,7 +12,7 @@ Choose one place to record shifts and stick with it. Options:
 - A printed worksheet (see `worksheets/timesheet-worksheet.html` — print and fill in by hand).
 - A simple notes app on your phone.
 - A spreadsheet (Google Sheets, Excel, or the free LibreOffice Calc).
-- The local `tools/timesheet-tracker.py` script (runs on your computer, nothing
+- The local `tools/timesheet_tracker.py` script (runs on your computer, nothing
   uploaded).
 
 Pick whichever you'll actually use. A worksheet you forget is worse than a
@@ -58,11 +58,11 @@ Pick a low-energy day (Sunday morning with coffee works for many people) and:
 Open these in your browser and print:
 
 - `static/timesheet.html` — one-page shift log.
-- `worksheets/earnings-tracker.html` — monthly earnings summary.
-- `worksheets/shift-swap-log.html` — track who you swapped shifts with.
+- `worksheets/earnings-worksheet.html` — monthly earnings summary.
+- `worksheets/shift-swap-worksheet.html` — track who you swapped shifts with.
 
 ## Automated option
 
-If you're comfortable with a little setup, `tools/timesheet-tracker.py` lets you
+If you're comfortable with a little setup, `tools/timesheet_tracker.py` lets you
 log shifts from your terminal and saves them to a file on your computer. See
 `tools/README.md` for instructions.
